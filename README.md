@@ -16,7 +16,7 @@ Actually! I am using Lazy.nvim also. But why I am trying this?
 ---
 # 1.
 
-![Screenshot (474)](https://github.com/user-attachments/assets/9e13795a-eb8d-4e7e-8f93-e295142ec300)
+![Screenshot (473)](https://github.com/user-attachments/assets/f1ec34b7-f5cf-4bc9-9d59-d88a85abc8cb)
 
 # 2.
 
@@ -28,7 +28,7 @@ Actually! I am using Lazy.nvim also. But why I am trying this?
 
 # 4.
 
-![Screenshot (473)](https://github.com/user-attachments/assets/f1ec34b7-f5cf-4bc9-9d59-d88a85abc8cb)
+![Screenshot (474)](https://github.com/user-attachments/assets/9e13795a-eb8d-4e7e-8f93-e295142ec300)
 
 # 5.
 
