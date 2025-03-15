@@ -34,5 +34,6 @@ Actually! I am using Lazy.nvim also. But why I am trying this?
 
 ![Screenshot (477)](https://github.com/user-attachments/assets/619043a1-6a4b-4b6d-8bae-5e9e96db7d43)
 
-===
+
+=====
 # Thanks @nvim | @mini | @all-plugin-authors 🥰
