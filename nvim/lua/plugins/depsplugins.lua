@@ -70,13 +70,11 @@ now(function()
         glow = false,
         show_end_of_buffer = true,
     })
+
+    add({ source = "armannikoyan/rusty" })
+    require('rusty').setup()
+
     vim.cmd("colorscheme darkvoid")
-end)
-
-
-later(function()
-    add({ source = "catgoose/nvim-colorizer.lua" })
-    require("colorizer").setup()
 end)
 
 now(function()

@@ -1,7 +1,15 @@
 local add, now, later = MiniDeps.add, MiniDeps.now, MiniDeps.later
 
+now(function()
+    add({ source = "y3owk1n/undo-glow.nvim", checkout = "main" })
+    require("undo-glow").setup()
+end)
+
 -- NOTE: (using) tido-comments instead or mini-hipatterns
 later(function()
+    add({ source = "catgoose/nvim-colorizer.lua" })
+    require("colorizer").setup()
+    -- =================+++++=====================
     add({ source = 'HiPhish/rainbow-delimiters.nvim' })
 
     --  ==============++++========================

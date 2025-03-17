@@ -1,6 +1,6 @@
 local add, now, later = MiniDeps.add, MiniDeps.now, MiniDeps.later
 
--- :NOTE combining..
+-- :NOTE: combining..
 later(function()
     add({ source = "jbyuki/venn.nvim" })
     -- venn.nvim: enable or disable keymappings

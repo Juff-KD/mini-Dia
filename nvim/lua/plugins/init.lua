@@ -5,6 +5,44 @@ require('plugins.gits')
 require('plugins.coolplugs')
 require('plugins.ftplugs')
 
+-- Snacks rename
+vim.api.nvim_create_autocmd("User", {
+    pattern = "MiniFilesActionRename",
+    callback = function(event)
+        Snacks.rename.on_rename_file(event.data.from, event.data.to)
+    end,
+})
+
+-- undo-glow
+vim.api.nvim_create_autocmd("TextYankPost", {
+    desc = "Highlight when yanking (copying) text",
+    callback = function()
+        require("undo-glow").yank()
+    end,
+})
+
+vim.api.nvim_create_autocmd("CursorMoved", {
+    desc = "Highlight when cursor moved significantly",
+    callback = function()
+        require("undo-glow").cursor_moved({
+            animation = {
+                animation_type = "slide",
+            },
+        })
+    end,
+})
+
+vim.api.nvim_create_autocmd("CmdLineLeave", {
+    pattern = { "/", "?" },
+    desc = "Highlight when search cmdline leave",
+    callback = function()
+        require("undo-glow").search_cmd({
+            animation = {
+                animation_type = "fade",
+            },
+        })
+    end,
+})
 -- jsx-element
 vim.api.nvim_create_autocmd("FileType", {
     pattern = { 'typescriptreact', 'javascriptreact', 'javascript' },

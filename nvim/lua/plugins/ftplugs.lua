@@ -52,6 +52,24 @@ later(function()
     config.defaults.actions.files["ctrl-t"] = actions.open
 end)
 
+later(function()
+    add({
+        source = 'pwntester/octo.nvim',
+        depends = { 'nvim-lua/plenary.nvim', "ibhagwan/fzf-lua", 'echasnovski/mini.icons' }
+    })
+    require("octo").setup({
+        picker = "fzf-lua",
+    })
+
+    add({ source = "folke/snacks.nvim" })
+    require("snacks").setup({
+        picker = { enabled = true },
+        bigfile = { enabled = true },
+        rename = { enabled = true },
+        lazygit = { enabled = true },
+        dim = { enabled = true },
+    })
+end)
 
 later(function()
     add({ source = "epwalsh/obsidian.nvim", depends = { "nvim-lua/plenary.nvim", "ibhagwan/fzf-lua" } })
