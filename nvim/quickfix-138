@@ -1,9 +1,0 @@
-lua\core\keymaps.lua local map = vim.api.nvim_set_keymap
-lua\core\keymaps.lua map('i', 'jk', '<ESC>', opts)
-lua\core\keymaps.lua map('n', '<A-q>', ':qa!<cr>', opts)
-lua\core\keymaps.lua map('n', '<leader>w', ':w!<cr>', opts)
-lua\core\keymaps.lua map('n', '<leader>e', '<cmd>lua MiniFiles.open()<cr>', opts)
-lua\core\keymaps.lua map('n', '<leader>fm', ':lua require("buffer_manager.ui").toggle_quick_menu()<cr>', opts)
-lua\core\keymaps.lua map('n', '<C-k>', ':lua require("buffer_manager.ui").nav_next()<cr>', opts)
-lua\core\keymaps.lua map('n', '<C-j>', ':lua require("buffer_manager.ui").nav_prev()<cr>', opts)
-lua\core\keymaps.lua     map('n', '<leader>?', '<cmd>WhichKey<cr>', opts)
