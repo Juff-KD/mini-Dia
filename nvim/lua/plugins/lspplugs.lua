@@ -1,15 +1,18 @@
 local add, now, later = MiniDeps.add, MiniDeps.now, MiniDeps.later
 
+add({ source = "zbirenbaum/copilot.lua" })
+require("copilot").setup({
+    suggestion = {
+        enabled = true,
+        auto_trigger = true,
+    }
+})
+
 later(function()
-    add({ source = "zbirenbaum/copilot.lua" })
-    require("copilot").setup({
-        suggestion = {
-            enabled = true,
-            auto_trigger = false,
-        }
-    })
     -- Use other plugins with `add()`. It ensures plugin is available in current
     -- session (installs if absent)
+    add({ source = 'nvimdev/lspsaga.nvim', depends = { 'neovim/nvim-lspconfig' } })
+
     add({
         source = 'neovim/nvim-lspconfig',
         -- Supply dependencies near target plugin
@@ -89,6 +92,7 @@ later(function()
             { name = "friendly-snippets" },
             { name = "buffer" },
             { name = 'render-markdown' },
+            { name = 'ecolog' },
             {
                 name = 'nvim_lsp',
                 option = {

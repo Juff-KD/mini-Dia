@@ -22,7 +22,7 @@ map('n', '<C-k>', '<C-w>k', opts)
 map('n', '<leader>t', ':Sterm pwsh<cr>', opts)
 
 -- NOTE: plugins keymaps
-map('n', '<leader>e', '<cmd>lua MiniFiles.open()<cr>', opts)
+map('n', '-', '<cmd>lua MiniFiles.open()<cr>', opts)
 
 -- NOTE: buffers manage..
 map('n', '<leader>fm', ':lua require("buffer_manager.ui").toggle_quick_menu()<cr>', opts)
@@ -38,7 +38,7 @@ end)
 local wk = require("which-key")
 wk.add({
     { "<leader>ff", "<cmd>Pick files<cr>", desc = "Pick files",       mode = "n" },
-    { "<leader>n",  "<cmd>enew<cr>",       desc = "New File",         mode = "n" },
+    { "<leader>fn", "<cmd>enew<cr>",       desc = "New File",         mode = "n" },
     { "<leader>D",  "<cmd>Alpha<cr>",      desc = "Dashboard",        mode = "n" },
     { "<leader>O",  ":Outline<cr>",        desc = "Toggle Outline",   mode = "n" },
     { "<leader>sk", ":Screenkey<cr>",      desc = "Toggle Screenkey", mode = "n" },
@@ -230,6 +230,15 @@ wk.add({
     { "<leader>fr", function() Snacks.picker.recent() end,          desc = "Recent" },
     { "<leader>:",  function() Snacks.picker.command_history() end, desc = "Command History" },
     -- { "<leader>uD", function() Snacks.toggle.dim() end,             desc = "Toggle dim" },
+
+    -- NOTE: Ecolog
+    { '<leader>el', '<Cmd>EcologShelterLinePeek<cr>',               desc = 'Ecolog peek line' },
+    { '<leader>eh', '<Cmd>EcologShellToggle<cr>',                   desc = 'Toggle shell variables' },
+    { '<leader>ei', '<Cmd>EcologInterpolationToggle<cr>',           desc = 'Toggle shell variables' },
+    { '<leader>ge', '<cmd>EcologGoto<cr>',                          desc = 'Go to env file' },
+    { '<leader>ec', '<cmd>EcologSnacks<cr>',                        desc = 'Open a picker' },
+    { '<leader>eS', '<cmd>EcologSelect<cr>',                        desc = 'Switch env file' },
+    { '<leader>es', '<cmd>EcologShelterToggle<cr>',                 desc = 'Ecolog shelter toggle' },
 
 
 })

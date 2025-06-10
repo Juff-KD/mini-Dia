@@ -88,3 +88,97 @@ later(function()
         -- see below for full list of options 👇
     })
 end)
+
+later(function()
+    add({ source = "vuki656/package-info.nvim", depends = { "MunifTanjim/nui.nvim" } })
+    -- Show dependency versions
+    vim.keymap.set({ "n" }, "<LEADER>ns", require("package-info").show, { silent = true, noremap = true })
+
+    -- Hide dependency versions
+    vim.keymap.set({ "n" }, "<LEADER>nc", require("package-info").hide, { silent = true, noremap = true })
+
+    -- Toggle dependency versions
+    vim.keymap.set({ "n" }, "<LEADER>nt", require("package-info").toggle, { silent = true, noremap = true })
+
+    -- Update dependency on the line
+    vim.keymap.set({ "n" }, "<LEADER>nu", require("package-info").update, { silent = true, noremap = true })
+
+    -- Delete dependency on the line
+    vim.keymap.set({ "n" }, "<LEADER>nd", require("package-info").delete, { silent = true, noremap = true })
+
+    -- Install a new dependency
+    vim.keymap.set({ "n" }, "<LEADER>ni", require("package-info").install, { silent = true, noremap = true })
+
+    -- Install a different dependency version
+    vim.keymap.set({ "n" }, "<LEADER>np", require("package-info").change_version, { silent = true, noremap = true })
+end)
+
+later(function()
+    add({ source = 't3ntxcl3s/ecolog.nvim' })
+    require('ecolog').setup({
+        preferred_environment = 'local',
+        types = true,
+        providers = {
+            {
+                pattern = '{{[%w_]+}}?$',
+                filetype = 'http',
+                extract_var = function(line, col)
+                    local utils = require 'ecolog.utils'
+                    return utils.extract_env_var(line, col, '{{([%w_]+)}}?$')
+                end,
+                get_completion_trigger = function()
+                    return '{{'
+                end,
+            },
+        },
+        interpolation = {
+            enabled = true,
+            features = {
+                commands = false,
+            },
+        },
+        sort_var_fn = function(a, b)
+            if a.source == 'shell' and b.source ~= 'shell' then
+                return false
+            end
+            if a.source ~= 'shell' and b.source == 'shell' then
+                return true
+            end
+
+            return a.name < b.name
+        end,
+        integrations = {
+            lspsaga = true,
+            nvim_cmp = true,
+            statusline = {
+                hidden_mode = true,
+                highlights = {
+                    env_file = 'Directory',
+                    vars_count = 'Number',
+                },
+            },
+            snacks = true,
+        },
+        shelter = {
+            configuration = {
+                sources = {
+                    ['.env.example'] = 'none',
+                },
+                partial_mode = {
+                    min_mask = 5,
+                    show_start = 1,
+                    show_end = 1,
+                },
+                mask_char = '*',
+            },
+            modules = {
+                files = true,
+                peek = false,
+                fzf_previewer = true,
+                snacks = false,
+                cmp = true,
+            },
+        },
+        path = vim.fn.getcwd()
+    })
+end)

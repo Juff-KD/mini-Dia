@@ -46,7 +46,7 @@ vim.api.nvim_create_autocmd("CmdLineLeave", {
 })
 -- -- jsx-element
 vim.api.nvim_create_autocmd("FileType", {
-    pattern = { 'typescriptreact', 'javascriptreact' },  -- 'javascript'
+    pattern = { 'typescriptreact', 'javascriptreact' }, -- 'javascript'
     callback = function()
         -- Access the plugin (triggers loading)
         local jsx = require("jsx-element")
